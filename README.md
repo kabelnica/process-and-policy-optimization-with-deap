@@ -9,7 +9,7 @@ Lai izvietotu modeli uz resursdatora bez modifikācijām, lietotājam ir nepieci
 
 ## Proxmox VE
 Proxmox VE hipervizoru ir nepieciešams manuāli uzstādīt uz tam īpaši atvēlētas infrastruktūras. To ir ieteicams izvietot uz fiziskas iekārts, bet var izmantot arī virtuālo mašīnu, ja procesors atbalsta *nested virtualization*.
-Instalācijas procesā ir ieteicams sekot [Proxmox dokumentācija](https://www.proxmox.com/en/products/proxmox-virtual-environment/get-started)
+Instalācijas procesā ir ieteicams sekot [Proxmox dokumentācijai](https://www.proxmox.com/en/products/proxmox-virtual-environment/get-started)
 
 ## Vagrant nfrastruktūras izveide
 No repozitorija galvenā kataloga infrastruktūru ir iespējams izvietot ar komandu `vagrant up`. Pēc veiksmīgas Vagrant izpildes, VirtualBox ir jāparādās Jenkins un Terraform serveriem.
@@ -36,7 +36,7 @@ Terraform servera veiksmīgu instalāciju ir iespējams pārbaudīt, pieslēdzot
 ```
 terraform -v 
 ```
-Terraform servera lietotāja katalogā ir izveidots katalogs **/terraform-proxmox-text**, kuras mainīgo datnē **variables.tf** ir jāiekļauj Proxmox VE lietotāja informācija. Lietotājam ir jābūt ar tiesībām izveidot un dzēst virtuālās mašīnas, lai Terraform varētu strādāt.
+Terraform servera lietotāja katalogā ir izveidots katalogs **/terraform-proxmox-test**, kuras mainīgo datnē **variables.tf** ir jāiekļauj Proxmox VE lietotāja informācija. Lietotājam ir jābūt ar tiesībām izveidot un dzēst virtuālās mašīnas, lai Terraform varētu strādāt.
 
 ## DEAP optimizācijas algoritms
 Optimizācijas algoritms jau ir sakonfigurēts ar darbā apskatītajiem modelēšanas parametrim.. Lai izpildītu Python skriptu ir nepieciešams vienīgi pievienot Jenkins lietotāja API informāciju.
