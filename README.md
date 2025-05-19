@@ -9,7 +9,15 @@ Lai izvietotu modeli uz resursdatora bez modifikācijām, lietotājam ir nepieci
 
 ## Proxmox VE
 Proxmox VE hipervizoru ir nepieciešams manuāli uzstādīt uz tam īpaši atvēlētas infrastruktūras. To ir ieteicams izvietot uz fiziskas iekārts, bet var izmantot arī virtuālo mašīnu, ja procesors atbalsta *nested virtualization*.
-Instalācijas procesā ir ieteicams sekot [Proxmox dokumentācijai](https://www.proxmox.com/en/products/proxmox-virtual-environment/get-started)
+Instalācijas procesā ir ieteicams sekot [Proxmox dokumentācijai](https://www.proxmox.com/en/products/proxmox-virtual-environment/get-started).
+
+Optimizācijas modelis sagaida sekojošus LXC šablonus uz Proxmox VE:
+- local:vztmpl/ubuntu-24.04-standard_24.04-2_amd64.tar.zst
+- local:vztmpl/debian-12-standard_12.7-1_amd64.tar.zst
+- local:vztmpl/ubuntu-25.04-standard_25.04-1.1_amd64.tar.zst
+- alpine-3.21-default_20241217_amd64.tar.xz
+
+Šablonus Proxmox var lejuplādēt ar `pveam download` komandu
 
 ## Vagrant nfrastruktūras izveide
 No repozitorija galvenā kataloga infrastruktūru ir iespējams izvietot ar komandu `vagrant up`. Pēc veiksmīgas Vagrant izpildes, VirtualBox ir jāparādās Jenkins un Terraform serveriem.

@@ -11,6 +11,14 @@ To deploy the model on a host machine without modifications, the user must have 
 The Proxmox VE hypervisor must be manually installed on dedicated infrastructure. It is recommended to deploy it on a physical machine, but a virtual machine can also be used if the CPU supports *nested virtualization*.  
 During installation, it is recommended to follow the [Proxmox documentation](https://www.proxmox.com/en/products/proxmox-virtual-environment/get-started)
 
+The optimization model expects the following LXC templates to be available on Proxmox VE:
+- local:vztmpl/ubuntu-24.04-standard_24.04-2_amd64.tar.zst
+- local:vztmpl/debian-12-standard_12.7-1_amd64.tar.zst
+- local:vztmpl/ubuntu-25.04-standard_25.04-1.1_amd64.tar.zst
+- alpine-3.21-default_20241217_amd64.tar.xz
+
+These templates can be downloaded using the `pveam download` command.
+
 ## Vagrant Infrastructure Setup
 From the root directory of the repository, the infrastructure can be deployed using the command `vagrant up`. After successful execution, Jenkins and Terraform servers should appear in VirtualBox.  
 The virtual machines can be accessed using `vagrant ssh jenkins` and `vagrant ssh terraform`.
