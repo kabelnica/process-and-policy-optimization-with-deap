@@ -5,7 +5,7 @@ Lai izvietotu modeli uz resursdatora bez modifikācijām, lietotājam ir nepieci
 - Vagrant 2.4.5+
 - VirtualBox 7.1.8+
 - Python 3.12+ ar DEAP bibliotēku (vai Anaconda)
-- Uzstādīts Proxmox VE hipervizors
+- Proxmox VE hipervizoru
 
 ## Proxmox VE
 Proxmox VE hipervizoru ir nepieciešams manuāli uzstādīt uz tam īpaši atvēlētas infrastruktūras. To ir ieteicams izvietot uz fiziskas iekārts, bet var izmantot arī virtuālo mašīnu, ja procesors atbalsta *nested virtualization*.
@@ -29,16 +29,17 @@ Pēc instalācijas nepieciešams veikt sekojošos soļus
 
 Pēc Jenkins konfigurācijas ir jāizveido jauns cauruļvads 'OPA-gala-modelis', skripta daļā iekļaujot **Jenkinsfile** datnes saturu.
 
-Sīkāk skatīt [Jenkins dokumentāciju].
+Sīkāk skatīt [Jenkins dokumentāciju](https://www.jenkins.io/doc/).
 
 ## Terraform serveris
-Terraform servera veiksmīgu instalāciju ir iespējams pārbaudīt, pieslēdzoties virtuālajai mašīnai caur komandrindu.
+Terraform servera veiksmīgu instalāciju ir iespējams pārbaudīt, pieslēdzieties virtuālajai mašīnai caur komandrindu un izpildiet kommandu:
 ```
 terraform -v 
 ```
-Terraform servera lietotāja katalogā ir izveidots katalogs **/terraform-proxmox-test**, kuras mainīgo datnē **variables.tf** ir jāiekļauj Proxmox VE lietotāja informācija. Lietotājam ir jābūt ar tiesībām izveidot un dzēst virtuālās mašīnas, lai Terraform varētu strādāt.
+Terraform servera lietotāja katalogā ir izveidots katalogs **/terraform-proxmox-test**, kuras mainīgo datnē **variables.tf** ir jāiekļauj Proxmox VE lietotāja informācija. Proxmox lietotājam ir jābūt ar tiesībām izveidot un dzēst virtuālās mašīnas, lai Terraform varētu strādāt.
 
 ## DEAP optimizācijas algoritms
 Optimizācijas algoritms jau ir sakonfigurēts ar darbā apskatītajiem modelēšanas parametrim.. Lai izpildītu Python skriptu ir nepieciešams vienīgi pievienot Jenkins lietotāja API informāciju.
+Modelēšanas rezultāti ir saglabāti **/results** katalogā. Tajā arī glabājas modelēšanas rezultātu piemērs, kas apskatīts darbā.
 
 
