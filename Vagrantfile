@@ -40,8 +40,15 @@ Vagrant.configure("2") do |config|
         tar xzf conftest_0.24.0_Linux_x86_64.tar.gz
         sudo mv conftest /usr/local/bin/
 
+        # Izveido optimizācijas modeļa mapi
+        sudo mkdir -p /var/lib/jenkins/opa-gala-modelis
+
       SHELL
     )
+    # Izvieto Open Policy Agent politiku datni
+    jenkins.vm.provision "file", source: "provision/lxc.rego", destination: "/tmp/lxc.rego"
+	jenkins.vm.provision "shell",
+		inline: "mv /tmp/lxc.rego /var/lib/jenkins/opa-gala-modelis/lxc.rego"
   end
 
   # Terraform serveris
@@ -62,8 +69,20 @@ Vagrant.configure("2") do |config|
         sudo apt-get update
         sudo apt-get install -y terraform
 
+        # Izveido optimizācijas modeļa mapi
+        sudo mkdir -p /home/vagrant/terraform-proxmox-test
+
       SHELL
     )
+    # Pārnes Terraform projektu uz darba mapi
+    terraform.vm.provision "file", source: "provision/terraform/main.tf", destination: "/tmp/main.tf"
+	terraform.vm.provision "shell",
+		inline: "mv /tmp/main.tf /home/vagrant/terraform-proxmox-test/main.tf"
+    terraform.vm.provision "file", source: "provision/terraform/provider.tf", destination: "/tmp/provider.tf"
+	terraform.vm.provision "shell",
+		inline: "mv /tmp/provider.tf /home/vagrant/terraform-proxmox-test/provider.tf"
+    terraform.vm.provision "file", source: "provision/terraform/variables.tf", destination: "/tmp/variables.tf"
+	terraform.vm.provision "shell",
+		inline: "mv /tmp/variables.tf /home/vagrant/terraform-proxmox-test/variables.tf"
   end
 end
-

@@ -19,7 +19,7 @@ Optimizācijas modelis sagaida sekojošus LXC šablonus uz Proxmox VE:
 
 Šablonus Proxmox var lejuplādēt ar `pveam download` komandu
 
-## Vagrant nfrastruktūras izveide
+## Vagrant infrastruktūras izveide
 No repozitorija galvenā kataloga infrastruktūru ir iespējams izvietot ar komandu `vagrant up`. Pēc veiksmīgas Vagrant izpildes, VirtualBox ir jāparādās Jenkins un Terraform serveriem.
 Virtuālajām mašīnām ir iespējams piekļūt ar `vagrant ssh jenkins` un `vagrant ssh terraform`. 
 Lai nodrošinātu Jenkins saziņu ar Terraform, uz Jenkins servera ir nepieciešams izveidot SSH atslēgu ar komandu `ssh-keygen`, kuras publisko atslēgu (id_rsa.pub) ir nepieciešams pievienot uz Terraform servera `.ssh/authorized_keys` sarakstam:
