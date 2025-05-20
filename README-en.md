@@ -33,7 +33,7 @@ After running Vagrant, navigate to the Jenkins web interface to complete the Jen
 Jenkins URL: http://192.168.56.10:8080/  
 After installation, perform the following steps:
 - Install the SSH Agent plugin
-- Create a [new API token](https://plugins.jenkins.io/ssh-agent/), **jenkins-tf-key**, which contains the private key (`id_rsa`) of the Vagrant user.
+- Create a [new SSH key](https://plugins.jenkins.io/ssh-agent/), **jenkins-tf-key**, which contains the private key (`id_rsa`) of the `vagrant` user.
 - Generate a Jenkins API token (Dashboard -> User -> Security), and add its value to the `optimization_model.py` source code of the optimization model
 
 After configuring Jenkins, create a new pipeline called `OPA-gala-modelis`, including the contents of the **Jenkinsfile** in the script section.
@@ -47,7 +47,7 @@ To verify the installation of the Terraform server, log in to the virtual machin
 terraform -v 
 ```
 
-In the Terraform server's user directory, a folder **/terraform-proxmox-test** has been created. In its **variables.tf** file, Proxmox VE user credentials must be added. The Proxmox user must have permissions to create and delete virtual machines for Terraform to function properly.
+In the Terraform server's user directory, a folder **/terraform-proxmox-test** has been created. In its **provider.tf** file, Proxmox VE user credentials must be added. The Proxmox user must have permissions to create and delete virtual machines for Terraform to function properly.
 
 ## DEAP Optimization Algorithm
 The optimization algorithm is already configured with the modeling parameters discussed in the paper. To run the Python script, only the Jenkins user API information needs to be added.

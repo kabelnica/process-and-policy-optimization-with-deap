@@ -42,7 +42,6 @@ Vagrant.configure("2") do |config|
 
         # Izveido optimizācijas modeļa mapi
         sudo mkdir -p /var/lib/jenkins/opa-gala-modelis
-
       SHELL
     )
     # Izvieto Open Policy Agent politiku datni
@@ -71,7 +70,7 @@ Vagrant.configure("2") do |config|
 
         # Izveido optimizācijas modeļa mapi
         sudo mkdir -p /home/vagrant/terraform-proxmox-test
-
+        sudo chown -R vagrant:vagrant /home/vagrant/terraform-proxmox-test
       SHELL
     )
     # Pārnes Terraform projektu uz darba mapi
