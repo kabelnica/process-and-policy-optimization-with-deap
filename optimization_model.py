@@ -310,7 +310,7 @@ toolbox.register("select", tools.selNSGA2)
 
 # Izpilda ģenētisko algortimu noteiktu iterāciju skaitu
 population = toolbox.population(n=12)
-NGEN = 25
+NGEN = 35
 
 # Masīvi modelēšanas rezultātu glabāšanai
 model_values = []
